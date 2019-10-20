@@ -2,18 +2,25 @@ import React from 'react';
 import Nav from'./components/Nav/Nav';
 import Body from './components/Body/Body';
 import CardFlip from './Pages/CardFlip';
+import './components/FrontComponent/FrontComponent.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Login from './components/Login/Login';
 
 function App() {
   return (
     <Router>
     <div>
       <Nav />
-      <Route path="/" component={Body} />
+      <Route exact path="/" component={Body} />
+      <Route path="/login" component={Login} />
       <Route path="/cardflip" component={CardFlip} />
+      <Route path="/cardflip" component={CardFlip} />
+      <Route path="/cardflip" component={CardFlip} />
+      <Route path="/cardflip" component={CardFlip} />
+      
     </div>
     </Router>
+    
 
   );
 }

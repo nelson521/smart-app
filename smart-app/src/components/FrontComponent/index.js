@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Card } from 'react-bootstrap';
+
 
 export default function YOUR_FRONT_CCOMPONENT(props) {
   return (
-    <div>
-      {props.children}
-    </div>
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        {props.children}
+      </Card.Body>
+    </Card>
   )
 }
 
