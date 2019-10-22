@@ -11,7 +11,7 @@ export default function SignUp() {
       <label htmlFor="">Last Name</label>
       <input type="text" name="" id=""/>
     </div>
-    <button type="submit" className="btn purple">Submit</button>
+    <button type="submit" className="btn purple">Submitt</button>
   </form>
   )
 }
