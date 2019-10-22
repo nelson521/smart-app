@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link }from 'react-router-dom'
 import './Nav.css';
 
 function Nav(props) {
@@ -7,8 +8,13 @@ function Nav(props) {
     <div className="nav-wrapper">
       <a href="/" className="brand-logo"><img src="IMG/decklogo.png"/></a>
       <ul className="right hide-on-med-and-down">
-        <button className="btn purple">Sign Up</button>
+        <Link to="/signup">
+          <button className="btn purple">Sign Up</button>
+        </Link>
+        <Link to="/login">
         <button className="btn purple">Login</button>
+        </Link>
+        
 
       </ul>
     </div>
