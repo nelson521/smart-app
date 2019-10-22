@@ -12,12 +12,12 @@ function App() {
     <div>
       <Nav />
       <Route exact path="/" component={Body} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/cardflip" component={CardFlip} />
-      <Route path="/cardflip" component={CardFlip} />
-      <Route path="/cardflip" component={CardFlip} />
-      <Route path="/cardflip" component={CardFlip} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/cardflip" component={CardFlip} />
+      <Route exact path="/cardflip" component={CardFlip} />
+      <Route exact path="/cardflip" component={CardFlip} />
+      <Route exact path="/cardflip" component={CardFlip} />
       
     </div>
     </Router>
