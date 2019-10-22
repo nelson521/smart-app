@@ -1,45 +1,51 @@
-import CardFlip from "./src/Pages/CardFlip";
-
-$(document).ready(function() {
-
-  var subjects = [
-    "HTML", "CSS", "JAVASCRIPT", "REACT", 
-  ];
-
-  // function to make buttons and add to page
-  function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
-    $(areaToAddTo).empty();
-
-    for (var i = 0; i < arrayToUse.length; i++) {
-      var a = $("<button>");
-      a.addClass(classToAdd);
-      a.attr("data-type", arrayToUse[i]);
-      a.text(arrayToUse[i]);
-      $(areaToAddTo).append(a);
+class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
     }
-
+  
+    componentDidMount() {
+      fetch("https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=d37a11a3-1cb2-470c-8dc0-465d9aa55a54")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result.items
+            });
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
+  
+    render() {
+      const { error, isLoaded, items } = this.state;
+      if (error) {
+        return <div>Error: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Loading...</div>;
+      } else {
+        return (
+          <ul>
+            {items.map(item => (
+              <li key={item.name}>
+                {item.name} {item.definitiom}
+              </li>
+            ))}
+          </ul>
+        );
+      }
+    }
   }
-
-  $(document).on("click", ".subject-button", function() {
-    $("#subjects").empty();
-    $(".subject-button").removeClass("active");
-    $(this).addClass("active");
-
-    var type = $(this).attr("data-type");
-    var queryURL = "https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=d37a11a3-1cb2-470c-8dc0-465d9aa55a54"
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-      .then(function(response) {
-        var results = response.data;
-        }
-      );
-  });
-
-  $(document).on("click", ".subject-card", function() {
-
-  })})
-
-  export default CardFlip;
