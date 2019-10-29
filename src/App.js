@@ -5,7 +5,9 @@ import CardFlip from './Pages/CardFlip';
 import './components/FrontComponent/FrontComponent.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
-import SignUp from './components/SignUp/SignUp'
+import SignUp from './components/SignUp/SignUp';
+import Dictionary from './components/Dictionary/Dictionary'
+
 function App() {
   return (
     <Router>
@@ -18,7 +20,7 @@ function App() {
       <Route exact path="/cardflip" component={CardFlip} />
       <Route exact path="/cardflip" component={CardFlip} />
       <Route exact path="/cardflip" component={CardFlip} />
-      
+      <Dictionary />
     </div>
     </Router>
     
