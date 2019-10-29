@@ -15,7 +15,7 @@ app.use(express.static(process.cwd() + "/public"));
 //connecting to MongoDB
 //mongoose.connect("mongodb://localhost/smart_app");
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/smart_app";
+  process.env.MONGODB_URI || "mongodb://localhost/finalProject";
   console.log(MONGODB_URI);
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
