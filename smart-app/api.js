@@ -1,3 +1,5 @@
+import CardFlip from "./src/Pages/CardFlip";
+
 class MyComponent extends React.Component {
     constructor(props) {
       super(props);
@@ -49,3 +51,5 @@ class MyComponent extends React.Component {
       }
     }
   }
+
+export default CardFlip;
