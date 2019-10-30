@@ -40,6 +40,10 @@ mongoose.connect("mongodb://localhost/finalProject", function(err) {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
+
 
 app.get('/api/words', function(req, res) {
   console.log('connected')
