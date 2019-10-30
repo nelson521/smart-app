@@ -3,15 +3,15 @@ var mongoose = require("mongoose");
 //initialize Express app
 var express = require("express");
 var app = express();
+var db = require("./models");
+
 //connecting to MongoDB
 //mongoose.connect("mongodb://localhost/smart_app");
 // const MONGODB_URI = "mongodb://localhost/finalProject";
 
 //Create localhost port
 var port = process.env.PORT || 3001;
-const Words = mongoose.model('words', {
-  value: String
-})
+
 
 mongoose.connect("mongodb://localhost/finalProject")
 .then(function() {
@@ -32,17 +32,18 @@ mongoose.connect("mongodb://localhost/finalProject", function(err) {
   console.log('Successfully connected');
 });
 
-let newWords = new Words(words)
-newWords.save()
-.then(() => {
-  console.log("save");
-}).catch(err => console.log(err))
+// let newWords = new Words(words)
+// newWords.save()
+// .then(() => {
+//   console.log("save");
+// }).catch(err => console.log(err))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/api/words', function(req, res) {
-  Words.find({},(err,data)=>{
+  console.log('connected')
+  db.Words.find({},(err,data)=>{
     res.json(data)
   })
 
