@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /client/mode_modules
+/smart-app
 /.pnp
 .pnp.js
 
